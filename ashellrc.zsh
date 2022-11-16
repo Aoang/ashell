@@ -9,7 +9,6 @@ export ZSH=$HOME/.config/ashell/oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-
 POWERLEVEL9K_MODE='nerdfont-complete'
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -29,7 +28,6 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_job
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh os_icon context dir vcs)
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -74,23 +72,23 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    zsh-completions
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    history-substring-search
-    screen
-    systemd
-    web-search
-    k
-    extract
-    z
-    sudo
-    git
-    docker
+  zsh-completions
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  history-substring-search
+  screen
+  systemd
+  web-search
+  k
+  extract
+  z
+  sudo
+  git
+  docker
 )
 #plugins+=(zsh-nvm)
 
-# source $ZSH/oh-my-zsh.sh          # This is now run in .zshrc after importing user configs from ~/.config/ezsh/zshrc/* files 
+# source $ZSH/oh-my-zsh.sh          # This is now run in .zshrc after importing user configs from ~/.config/ezsh/zshrc/* files
 
 # User configuration
 
@@ -131,16 +129,15 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 
 [[ -s "$HOME/.config/ashell/marker/marker.sh" ]] && source "$HOME/.config/ashell/marker/marker.sh"
 
-autoload -U compinit && compinit -C -d ~/.cache/zsh/.zcompdump        # zsh-completions
+autoload -U compinit && compinit -C -d ~/.cache/zsh/.zcompdump # zsh-completions
 # autoload bashcompinit                 # bash completions
 # bashcompinit
 
-
 # QuickZsh
-SAVEHIST=50000      #save upto 50,000 lines in history. oh-my-zsh default is 10,000
+SAVEHIST=50000 #save upto 50,000 lines in history. oh-my-zsh default is 10,000
 #setopt hist_ignore_all_dups     # dont record duplicated entries in history during a single session
 
-alias myip="wget -qO- https://api.ip.x2ox.com/api/ip?type=json"	# quickly show external ip address
+alias myip="wget -qO- https://api.ip.x2ox.com/api/ip?type=json" # quickly show external ip address
 alias ll="ls -lah"
 
 # CUSTOM FUNCTIONS
@@ -150,32 +147,32 @@ alias ll="ls -lah"
 # for language specific question supply 2 args first for language, second as the question
 # eample: cheat python3 execute external program
 cheat() {
-    if [ "$2" ]; then
-        curl "https://cheat.sh/$1/$2+$3+$4+$5+$6+$7+$8+$9+$10"
-    else
-        curl "https://cheat.sh/$1"
-    fi
+  if [ "$2" ]; then
+    curl "https://cheat.sh/$1/$2+$3+$4+$5+$6+$7+$8+$9+$10"
+  else
+    curl "https://cheat.sh/$1"
+  fi
 }
 
 # Find dictionary definition
 dict() {
-    if [ "$3" ]; then
-        curl "dict://dict.org/d:$1 $2 $3"
-    elif [ "$2" ]; then
-        curl "dict://dict.org/d:$1 $2"
-    else
-        curl "dict://dict.org/d:$1"
-    fi
+  if [ "$3" ]; then
+    curl "dict://dict.org/d:$1 $2 $3"
+  elif [ "$2" ]; then
+    curl "dict://dict.org/d:$1 $2"
+  else
+    curl "dict://dict.org/d:$1"
+  fi
 }
 
 # Find geo info from IP
 ipgeo() {
-    # Specify ip or your ip will be used
-    if [ "$1" ]; then
-        curl "https://ipinfo.io/$1/json"
-    else
-        curl "https://ipinfo.io/json"
-    fi
+  # Specify ip or your ip will be used
+  if [ "$1" ]; then
+    curl "https://ipinfo.io/$1/json"
+  else
+    curl "https://ipinfo.io/json"
+  fi
 }
 
 ~/.config/ashell/bin/neofetch
