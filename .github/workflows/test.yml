@@ -23,3 +23,7 @@ jobs:
           mkdir -p ~/.config/ashell
           cp * ~/.config/ashell && cd ~/.config/ashell
           sudo chmod +x install.sh && bash install.sh
+
+      - run: |
+          rm -rf ~/.config/ashell
+          curl -o- https://github.com/Aoang/ashell/main/init.sh | bash

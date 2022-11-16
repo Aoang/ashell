@@ -25,7 +25,8 @@ macos)
     brew install nano git curl wget zsh
     ;;
 *)
-    echo -e "missing release name \n"
+    brew install nano git curl wget zsh || sudo yum install -y nano git curl wget zsh ||
+    sudo apt install -y nano git curl wget zsh || sudo pacman -S nano git curl wget zsh
     ;;
 esac
 
