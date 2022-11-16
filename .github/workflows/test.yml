@@ -1,0 +1,25 @@
+name: Test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Init
+        run: |
+          brew install nano git curl wget zsh || sudo apt install -y nano git curl wget zsh
+
+      - run: |
+          mkdir -p ~/.config/ashell
+          cp * ~/.config/ashell && cd ~/.config/ashell
+          sudo chmod +x install.sh && bash install.sh
