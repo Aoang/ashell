@@ -24,6 +24,12 @@ jobs:
           cp * ~/.config/ashell && cd ~/.config/ashell
           sudo chmod +x install.sh && bash install.sh
 
-      - run: |
-          rm -rf ~/.config/ashell
-          curl -o- https://github.com/Aoang/ashell/main/init.sh | bash
+  ci-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -o- https://raw.githubusercontent.com/Aoang/ashell/main/init.sh | bash
+
+  ci-mac:
+    runs-on: macos-latest
+    steps:
+      - run: curl -o- https://raw.githubusercontent.com/Aoang/ashell/main/init.sh | zsh
